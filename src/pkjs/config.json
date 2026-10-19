@@ -1,0 +1,41 @@
+[
+  {
+    "type": "heading",
+    "defaultValue": "Circle of Fifths"
+  },
+  {
+    "type": "text",
+    "defaultValue": "Choose what to display on the screen."
+  },
+  {
+    "type": "section",
+    "items": [
+      {
+        "type": "heading",
+        "defaultValue": "Display"
+      },
+      {
+        "type": "toggle",
+        "messageKey": "SHORT_HANDS",
+        "label": "Use shorter hands",
+        "defaultValue": false
+      },
+      {
+        "type": "toggle",
+        "messageKey": "SHOW_BATTERY",
+        "label": "Show Battery",
+        "defaultValue": false
+      },
+      {
+        "type": "toggle",
+        "messageKey": "SHOW_STEPS",
+        "label": "Show Steps",
+        "defaultValue": false
+      }
+    ]
+  },
+  {
+    "type": "submit",
+    "defaultValue": "Save"
+  }
+]

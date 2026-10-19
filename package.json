@@ -1,0 +1,54 @@
+{
+    "author": "Axel Kark",
+    "dependencies": {
+        "@rebble/clay": "1.0.8"
+    },
+    "keywords": [],
+    "name": "circle-of-fifths",
+    "pebble": {
+        "capabilities": [
+            "configurable",
+            "health"
+        ],
+        "displayName": "Circle of Fifths at Your Wrist",
+        "enableMultiJS": true,
+        "messageKeys": [
+            "SHOW_BATTERY",
+            "SHOW_STEPS",
+            "SHORT_HANDS"
+        ],
+        "projectType": "native",
+        "resources": {
+            "media": [
+                {
+                    "file": "images/logo.png",
+                    "menuIcon": true,
+                    "name": "LOGO",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/steps.png",
+                    "name": "STEPS",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                }
+            ]
+        },
+        "sdkVersion": "3",
+        "targetPlatforms": [
+            "aplite",
+            "basalt",
+            "chalk",
+            "diorite",
+            "emery",
+            "gabbro",
+            "flint"
+        ],
+        "uuid": "ac9f2346-a444-43b7-9d0a-17585a77f5a1",
+        "watchapp": {
+            "watchface": true
+        }
+    },
+    "version": "1.1.1"
+}
