@@ -1,4 +1,4 @@
-CIRCLE OF FIFTHS - Rebble App Store listing
+CIRCLE OF FIFTHS - Repebble App Store listing
 
 Wird bei jeder Veroeffentlichung mit aktualisiert. Englisch, reiner Text, ein Absatz pro Zeile. Zum Veroeffentlichen aus dem Projektverzeichnis heraus: pebble publish --release-notes "..."
 

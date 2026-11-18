@@ -4,7 +4,7 @@
 
 <img src="screenshots/shot_emery_classic.png" alt="shot_emery_classic.png"> <img src="screenshots/shot_emery_info.png" alt="shot_emery_info.png"> <img src="screenshots/shot_emery_short.png" alt="shot_emery_short.png"> <img src="screenshots/shot_gabbro_classic.png" alt="shot_gabbro_classic.png"> <img src="screenshots/shot_gabbro_info.png" alt="shot_gabbro_info.png"> <img src="screenshots/shot_gabbro_short.png" alt="shot_gabbro_short.png">
 
-A Pebble watchface (v1.2.0), available in the [Rebble App Store](https://apps.repebble.com/582ac6cc8c7fff9edf000230).
+A Pebble watchface (v1.2.0), available in the [Repebble App Store](https://apps.repebble.com/582ac6cc8c7fff9edf000230).
 
 An analog watchface built around the circle of fifths. The twelve major keys sit around the dial where the hour numbers would be - C at twelve, G at one, D at two and so on clockwise - and the relative minor of each key is set in red just inside it.
 
@@ -58,7 +58,7 @@ Added the newer models and a settings page.
 
 ## Status
 
-Version 1.2.0 is built and checked in the emulator on gabbro (normal and mirrored dial). It was published to the Rebble App Store on 18 Nov 2026. The store screenshots are still the ones from 1.1.1 and show the normal dial only; the mirrored dial has no screenshot yet. The project has no `screenshots/presets.json`, so `pb.ps1 shots` does not work for it until one is added.
+Version 1.2.0 is built and checked in the emulator on gabbro (normal and mirrored dial). It was published to the Repebble App Store on 18 Nov 2026. The store screenshots are still the ones from 1.1.1 and show the normal dial only; the mirrored dial has no screenshot yet. The project has no `screenshots/presets.json`, so `pb.ps1 shots` does not work for it until one is added.
 
 ## License
 
