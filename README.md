@@ -58,7 +58,7 @@ Added the newer models and a settings page.
 
 ## Status
 
-Version 1.2.0 is built and checked in the emulator on gabbro (normal and mirrored dial). It is not yet published to the Rebble App Store. The store screenshots are still the ones from 1.1.1 and show the normal dial only; the mirrored dial has no screenshot yet. The project has no `screenshots/presets.json`, so `pb.ps1 shots` does not work for it until one is added.
+Version 1.2.0 is built and checked in the emulator on gabbro (normal and mirrored dial). It was published to the Rebble App Store on 18 Nov 2026. The store screenshots are still the ones from 1.1.1 and show the normal dial only; the mirrored dial has no screenshot yet. The project has no `screenshots/presets.json`, so `pb.ps1 shots` does not work for it until one is added.
 
 ## License
 
