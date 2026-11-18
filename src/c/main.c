@@ -158,6 +158,7 @@
 #define PKEY_SHOW_BATTERY 1
 #define PKEY_SHOW_STEPS   2
 #define PKEY_SHORT_HANDS  3
+#define PKEY_FLIP_CIRCLE  4
 
 /* ----- Farben ----- */
 #define COLOR_BG     GColorWhite
@@ -171,6 +172,7 @@ static Layer  *s_hands_layer, *s_dot_layer;
 static bool s_show_battery = false;
 static bool s_show_steps   = false;
 static bool s_short_hands  = false;
+static bool s_flip_circle  = false;  /* gespiegelt: Quartenzirkel, b-Tonarten rechts */
 
 static GBitmap *s_steps_bitmap = NULL;
 
@@ -189,6 +191,13 @@ static GPoint dial_center(GRect bounds) {
   }
   return GPoint(bounds.size.w / 2, bounds.size.h / 2);
 #endif
+}
+
+/* Index in der Tonartenliste fuer Position i im Uhrzeigersinn. Normal laeuft
+ * die Liste in Quinten (C, G, D ...). Gespiegelt bleibt C oben, der Rest
+ * laeuft rueckwaerts (C, F, Bb ...): jede Stunde ist dann eine Quarte hoeher. */
+static int key_index(int pos) {
+  return s_flip_circle ? (12 - pos) % 12 : pos;
 }
 
 static int get_battery_percent(void) {
@@ -457,7 +466,7 @@ static void dot_update_proc(Layer *layer, GContext *ctx) {
     angle = DEG_TO_TRIGANGLE(i * 30);
     inner.y = (int16_t)(-cos_lookup(angle) * (int32_t)inner_pos / TRIG_MAX_RATIO) + center.y;
     inner.x = (int16_t)( sin_lookup(angle) * (int32_t)inner_pos / TRIG_MAX_RATIO) + center.x;
-    graphics_draw_text(ctx, dur[i], fonts_get_system_font(DUR_FONT),
+    graphics_draw_text(ctx, dur[key_index(i)], fonts_get_system_font(DUR_FONT),
                        GRect(inner.x - DUR_BOX_W / 2 + DUR_DX,
                              inner.y - DUR_BOX_H / 2 + DUR_DY,
                              DUR_BOX_W, DUR_BOX_H),
@@ -474,7 +483,7 @@ static void dot_update_proc(Layer *layer, GContext *ctx) {
     angle = DEG_TO_TRIGANGLE(i * 30);
     inner.y = (int16_t)(-cos_lookup(angle) * (int32_t)inner_pos / TRIG_MAX_RATIO) + center.y;
     inner.x = (int16_t)( sin_lookup(angle) * (int32_t)inner_pos / TRIG_MAX_RATIO) + center.x;
-    graphics_draw_text(ctx, moll[i], fonts_get_system_font(MOLL_FONT),
+    graphics_draw_text(ctx, moll[key_index(i)], fonts_get_system_font(MOLL_FONT),
                        GRect(inner.x - MOLL_BOX_W / 2 + MOLL_DX,
                              inner.y - MOLL_BOX_H / 2 + MOLL_DY,
                              MOLL_BOX_W, MOLL_BOX_H),
@@ -563,6 +572,13 @@ static void inbox_received(DictionaryIterator *iter, void *context) {
     changed = true;
   }
 
+  Tuple *tf = dict_find(iter, MESSAGE_KEY_FLIP_CIRCLE);
+  if (tf) {
+    s_flip_circle = tuple_to_bool(tf);
+    persist_write_bool(PKEY_FLIP_CIRCLE, s_flip_circle);
+    changed = true;
+  }
+
   if (changed) {
     layer_mark_dirty(window_get_root_layer(s_window));
   }
@@ -622,6 +638,9 @@ static void init(void) {
   }
   if (persist_exists(PKEY_SHORT_HANDS)) {
     s_short_hands = persist_read_bool(PKEY_SHORT_HANDS);
+  }
+  if (persist_exists(PKEY_FLIP_CIRCLE)) {
+    s_flip_circle = persist_read_bool(PKEY_FLIP_CIRCLE);
   }
 
   app_message_register_inbox_received(inbox_received);

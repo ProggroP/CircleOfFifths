@@ -15,7 +15,8 @@
         "messageKeys": [
             "SHOW_BATTERY",
             "SHOW_STEPS",
-            "SHORT_HANDS"
+            "SHORT_HANDS",
+            "FLIP_CIRCLE"
         ],
         "projectType": "native",
         "resources": {
@@ -50,5 +51,5 @@
             "watchface": true
         }
     },
-    "version": "1.1.1"
+    "version": "1.2.0"
 }

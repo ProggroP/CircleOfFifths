@@ -29,6 +29,7 @@ Runs on every Pebble: the original Pebble and Pebble Steel, Pebble Time, Pebble 
 
 SETTINGS
 
+- Circle of fourths - mirrors the dial so the flat keys sit on the right and each hour step goes up a perfect fourth: C, F, Bb, Eb and so on clockwise.
 - Use shorter hands - halves the hands so they stay clear of the key names.
 - Show Battery - the charge level as the watch reports it.
 - Show Steps - today's step count from Pebble Health.
@@ -40,6 +41,10 @@ Watchfaces
 
 
 RELEASE NOTES
+
+1.2.0
+
+New setting "Circle of fourths": it mirrors the dial, so C stays at twelve but the flat keys now sit on the right. Every hour the hand moves up a perfect fourth - C, F, Bb, Eb and so on. The relative minor keys follow along.
 
 1.1.1
 
